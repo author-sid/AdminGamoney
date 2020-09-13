@@ -46,7 +46,7 @@ public class CSGO_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_csgo);
 
         inputEventImage = findViewById(R.id.CSGO_image);
-        EventsImagesRef = FirebaseStorage.getInstance().getReference().child("Event Images");
+        EventsImagesRef = FirebaseStorage.getInstance().getReference().child("CSGO Images");
         EventsRef = FirebaseDatabase.getInstance().getReference("CSGO Tournaments");
         AddNewEventButton = findViewById(R.id.add_Event);
         inputEventPrice = findViewById(R.id.CSGO_price);

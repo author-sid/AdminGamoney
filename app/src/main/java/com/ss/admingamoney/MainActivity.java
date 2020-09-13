@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         inputEventImage = findViewById(R.id.select_Event_image111);
-        EventsImagesRef = FirebaseStorage.getInstance().getReference().child("Event Images");
+        EventsImagesRef = FirebaseStorage.getInstance().getReference().child("Pubg Images");
         EventsRef = FirebaseDatabase.getInstance().getReference("Pubg Tournaments");
         AddNewEventButton = findViewById(R.id.add_Event);
         inputEventPrice = findViewById(R.id.Event_Price);

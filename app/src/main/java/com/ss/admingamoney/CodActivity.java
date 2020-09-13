@@ -45,7 +45,7 @@ public class CodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cod);
         inputEventImage = findViewById(R.id.Cod_image);
-        EventsImagesRef = FirebaseStorage.getInstance().getReference().child("Event Images");
+        EventsImagesRef = FirebaseStorage.getInstance().getReference().child("COD Images");
         EventsRef = FirebaseDatabase.getInstance().getReference("Cod Tournaments");
         AddNewEventButton = findViewById(R.id.add_Event);
         inputEventPrice = findViewById(R.id.Cod_price);

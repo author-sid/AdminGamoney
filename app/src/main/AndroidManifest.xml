@@ -10,14 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CSGO_Activity"></activity>
-        <activity android:name=".FreefireActivity" />
-        <activity android:name=".CodActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".FreefireActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".CodActivity" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

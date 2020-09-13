@@ -46,7 +46,7 @@ public class FreefireActivity extends AppCompatActivity {
         setContentView(R.layout.activity_freefire_);
 
         inputEventImage = findViewById(R.id.Freefire_image);
-        EventsImagesRef = FirebaseStorage.getInstance().getReference().child("Event Images");
+        EventsImagesRef = FirebaseStorage.getInstance().getReference().child("Freefire Images");
         EventsRef = FirebaseDatabase.getInstance().getReference("Freefire Tournaments");
         AddNewEventButton = findViewById(R.id.add_Event);
         inputEventPrice = findViewById(R.id.Freefire_price);
