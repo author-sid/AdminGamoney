@@ -28,7 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class CodActivity extends AppCompatActivity {
     private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime;
     private android.widget.ImageView inputEventImage;
     private Button AddNewEventButton;
@@ -43,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        inputEventImage = findViewById(R.id.select_Event_image111);
+        setContentView(R.layout.activity_cod);
+        inputEventImage = findViewById(R.id.Cod_image);
         EventsImagesRef = FirebaseStorage.getInstance().getReference().child("Event Images");
-        EventsRef = FirebaseDatabase.getInstance().getReference("Pubg Tournaments");
+        EventsRef = FirebaseDatabase.getInstance().getReference("Cod Tournaments");
         AddNewEventButton = findViewById(R.id.add_Event);
-        inputEventPrice = findViewById(R.id.Event_Price);
-        InputEventDescription = findViewById(R.id.Event_description);
-        InputEventPrize = findViewById(R.id.Events_Prize);
-        InputEventTime = findViewById(R.id.Event_time);
+        inputEventPrice = findViewById(R.id.Cod_price);
+        InputEventDescription = findViewById(R.id.Cod_description);
+        InputEventPrize = findViewById(R.id.Cod_prize);
+        InputEventTime = findViewById(R.id.Cod_time);
         loadingBar = new ProgressDialog(this);
         inputEventImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,13 +132,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 String message = e.toString();
-                Toast.makeText(MainActivity.this, "Error:" + message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CodActivity.this, "Error:" + message, Toast.LENGTH_SHORT).show();
                 loadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(MainActivity.this, "Image Uploaded successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CodActivity.this, "Image Uploaded successfully", Toast.LENGTH_SHORT).show();
                 Task<Uri> urlTask = upload.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Uri> task) {
                         if (task.isSuccessful()) {
                             downloadimageurl = task.getResult().toString();
-                            Toast.makeText(MainActivity.this, "got the Product image url successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CodActivity.this, "got the Product image url successfully", Toast.LENGTH_SHORT).show();
 
 
                             SaveProductInfotodatabase();
@@ -181,14 +181,14 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
 
                         if (task.isSuccessful()) {
-                            Intent a = new Intent(MainActivity.this, MainActivity.class);
+                            Intent a = new Intent(CodActivity.this, CodActivity.class);
                             startActivity(a);
                             loadingBar.dismiss();
-                            Toast.makeText(MainActivity.this, "Product is added successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CodActivity.this, "Product is added successfully", Toast.LENGTH_SHORT).show();
                         } else {
                             loadingBar.dismiss();
                             String message = task.getException().toString();
-                            Toast.makeText(MainActivity.this, "Error:" + message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CodActivity.this, "Error:" + message, Toast.LENGTH_SHORT).show();
 
                         }
                     }
