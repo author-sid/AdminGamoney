@@ -62,23 +62,12 @@
         android:padding="20dp"
         android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/CSGO_prize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/CSGO_description"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginTop="6dp"
-        android:hint="Enter Prize"
-        android:padding="20dp"
-        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/CSGO_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/CSGO_prize"
+        android:layout_below="@id/CSGO_description"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:layout_marginTop="6dp"

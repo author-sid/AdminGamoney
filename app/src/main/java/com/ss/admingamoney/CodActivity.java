@@ -32,7 +32,7 @@ public class CodActivity extends AppCompatActivity {
     private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime;
     private android.widget.ImageView inputEventImage;
     private Button AddNewEventButton;
-    private EditText inputEventPrice, InputEventDescription, InputEventPrize, InputEventTime;
+    private EditText inputEventPrice, InputEventDescription, InputEventTime;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String ProductRandomKey, downloadimageurl;
@@ -50,7 +50,6 @@ public class CodActivity extends AppCompatActivity {
         AddNewEventButton = findViewById(R.id.add_Event);
         inputEventPrice = findViewById(R.id.Cod_price);
         InputEventDescription = findViewById(R.id.Cod_description);
-        InputEventPrize = findViewById(R.id.Cod_prize);
         InputEventTime = findViewById(R.id.Cod_time);
         loadingBar = new ProgressDialog(this);
         inputEventImage.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +88,6 @@ public class CodActivity extends AppCompatActivity {
     private void ValidateProductData() {
         Edescription = InputEventDescription.getText().toString();
         Eprice = inputEventPrice.getText().toString();
-        Eprize = InputEventPrize.getText().toString();
         Etime = InputEventTime.getText().toString();
 
         if (ImageUri == null) {
@@ -100,10 +98,7 @@ public class CodActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(Eprice)) {
             Toast.makeText(this, "Please Write Event price", Toast.LENGTH_SHORT).show();
 
-        } else if (TextUtils.isEmpty(Eprize)) {
-            Toast.makeText(this, "Please Write Event price", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(Etime)) {
-
             Toast.makeText(this, "Please enter Event time", Toast.LENGTH_SHORT).show();
         } else {
             StoreProductInfomation();
@@ -173,7 +168,6 @@ public class CodActivity extends AppCompatActivity {
         ProductMap.put("description", Edescription);
         ProductMap.put("image", downloadimageurl);
         ProductMap.put("price", Eprice);
-        ProductMap.put("prize", Eprize);
         ProductMap.put("time", Etime);
         EventsRef.child(ProductRandomKey).updateChildren(ProductMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

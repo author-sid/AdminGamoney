@@ -52,23 +52,12 @@
         android:padding="20dp"
         android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/Events_Prize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Event_description"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginTop="6dp"
-        android:hint="Enter Prize"
-        android:padding="20dp"
-        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/Event_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Events_Prize"
+        android:layout_below="@id/Event_description"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:layout_marginTop="6dp"
