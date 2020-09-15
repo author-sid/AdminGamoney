@@ -1,13 +1,18 @@
 package com.ss.admingamoney;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +23,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -28,7 +34,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class CSGO_Activity extends AppCompatActivity {
+public class CSGO_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
+
+
     private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime;
     private android.widget.ImageView inputEventImage;
     private Button AddNewEventButton;
@@ -44,6 +56,20 @@ public class CSGO_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_csgo);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+
+
+        setSupportActionBar(toolbar);
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
 
         inputEventImage = findViewById(R.id.CSGO_image);
         EventsImagesRef = FirebaseStorage.getInstance().getReference().child("CSGO Images");
@@ -190,5 +216,49 @@ public class CSGO_Activity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+
+        } else {
+            super.onBackPressed();
+        }
+
+
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()) {
+
+
+            case R.id.pubg:
+                Intent intent2 = new Intent(CSGO_Activity.this, MainActivity.class);
+                startActivity(intent2);
+                break;
+
+            case R.id.cod:
+                Intent intent3 = new Intent(CSGO_Activity.this, CodActivity.class);
+                startActivity(intent3);
+
+                break;
+
+
+            case R.id.csgo:
+
+                break;
+
+            case R.id.freefire:
+                Intent intent4 = new Intent(CSGO_Activity.this, FreefireActivity.class);
+                startActivity(intent4);
+                break;
+        }
+        return true;
     }
 }
