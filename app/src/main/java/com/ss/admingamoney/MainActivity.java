@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime;
     private android.widget.ImageView inputEventImage;
-    private Button AddNewEventButton;
+    private Button AddNewEventButton,Pubgroomid ;
     private EditText inputEventPrice, InputEventDescription, InputEventTime;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
@@ -59,8 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        Pubgroomid = findViewById(R.id.pubgroomid);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
@@ -73,6 +72,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+        Pubgroomid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Roomid1intent = new Intent(MainActivity.this, Pubgfirebase.class);
+                startActivity(Roomid1intent);
+                finish();
+
+            }
+        });
 
 
         inputEventImage = findViewById(R.id.select_Event_image111);

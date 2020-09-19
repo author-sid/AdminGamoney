@@ -52,6 +52,7 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
     private StorageReference EventsImagesRef;
     private DatabaseReference EventsRef;
     private ProgressDialog loadingBar;
+    private Button freefireroomid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+        freefireroomid = findViewById(R.id.freefireroomid);
 
 
         setSupportActionBar(toolbar);
@@ -70,6 +72,17 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        freefireroomid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Roomid4intent = new Intent(FreefireActivity.this, Freefirefirebase.class);
+                startActivity(Roomid4intent);
+                finish();
+
+            }
+        });
 
 
         inputEventImage = findViewById(R.id.Freefire_image);
@@ -110,6 +123,15 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
 
             ImageUri = data.getData();
             inputEventImage.setImageURI(ImageUri);
+
+            freefireroomid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent Roomid4intent = new Intent(FreefireActivity.this, Freefirefirebase.class);
+                    startActivity(Roomid4intent);
+                    finish();
+                }
+            });
         }
     }
 

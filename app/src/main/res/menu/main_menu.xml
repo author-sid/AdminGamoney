@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/pubg"
+            android:icon="@drawable/pubg"
+            android:title="pubg" />
+
+        <item
+            android:id="@+id/freefire"
+            android:icon="@drawable/freefire"
+            android:title="freefire" />
+
+        <item
+            android:id="@+id/cod"
+            android:icon="@drawable/cod"
+            android:title="cod" />
+
+        <item
+            android:id="@+id/csgo"
+            android:icon="@drawable/csgo"
+            android:title="csgo" />
+    </group>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</menu>

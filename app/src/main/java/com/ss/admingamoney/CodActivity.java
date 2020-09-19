@@ -43,7 +43,7 @@ public class CodActivity extends AppCompatActivity implements NavigationView.OnN
 
     private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime;
     private android.widget.ImageView inputEventImage;
-    private Button AddNewEventButton;
+    private Button AddNewEventButton,codroomid;
     private EditText inputEventPrice, InputEventDescription, InputEventTime;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
@@ -61,6 +61,7 @@ public class CodActivity extends AppCompatActivity implements NavigationView.OnN
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+        codroomid = findViewById(R.id.codroomid);
 
 
         setSupportActionBar(toolbar);
@@ -70,6 +71,16 @@ public class CodActivity extends AppCompatActivity implements NavigationView.OnN
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        codroomid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Roomidintent = new Intent(CodActivity.this, CodFirebase.class);
+                startActivity(Roomidintent);
+                finish();
+
+            }
+        });
 
 
         inputEventImage = findViewById(R.id.Cod_image);

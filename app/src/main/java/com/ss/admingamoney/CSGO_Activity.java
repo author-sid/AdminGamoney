@@ -51,6 +51,7 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
     private StorageReference EventsImagesRef;
     private DatabaseReference EventsRef;
     private ProgressDialog loadingBar;
+    private Button csgoroomid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+        csgoroomid = findViewById(R.id.csgoroomid);
 
 
         setSupportActionBar(toolbar);
@@ -69,6 +71,16 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        csgoroomid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Roomid3intent = new Intent(CSGO_Activity.this, Csgofirebase.class);
+                startActivity(Roomid3intent);
+                finish();
+
+            }
+        });
 
 
         inputEventImage = findViewById(R.id.CSGO_image);
