@@ -41,7 +41,7 @@ public class CodActivity extends AppCompatActivity implements NavigationView.OnN
     Toolbar toolbar;
 
 
-    private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime  , Edate , Emonth , Etournament , Emap ;
+    private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime , Edate , Emonth , Etournament , Emap ;
     private android.widget.ImageView inputEventImage;
     private Button AddNewEventButton,codroomid;
     private EditText inputEventPrice, InputEventDescription, InputEventTime ,InputEventPrize , InputEventDate, InputEventMonth, InputEventTournament , InputEventMap ;
@@ -232,6 +232,7 @@ public class CodActivity extends AppCompatActivity implements NavigationView.OnN
         ProductMap.put("description", Edescription);
         ProductMap.put("image", downloadimageurl);
         ProductMap.put("price", Eprice);
+        ProductMap.put("time" , Etime);
         ProductMap.put("prize", Eprize);
         ProductMap.put("date", Edate);
         ProductMap.put("month", Emonth);

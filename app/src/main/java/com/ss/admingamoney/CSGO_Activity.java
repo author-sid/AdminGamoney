@@ -133,6 +133,7 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
         Edescription = InputEventDescription.getText().toString();
         Eprice = inputEventPrice.getText().toString();
         Etime = InputEventTime.getText().toString();
+        Eprize = InputEventPrize.getText().toString();
         Edate = InputEventdate.getText().toString();
         Emonth = InputEventMonth.getText().toString();
         Etournament = InputEventTournament.getText().toString();

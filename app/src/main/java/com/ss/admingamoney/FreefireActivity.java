@@ -144,6 +144,11 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
         Edescription = InputEventDescription.getText().toString();
         Eprice = inputEventPrice.getText().toString();
         Etime = InputEventTime.getText().toString();
+        Eprize = InputEventPrize.getText().toString();
+        Edate = InputEventDate.getText().toString();
+        Emonth = InputEventMonth.getText().toString();
+        Etournament = InputEventTournament.getText().toString();
+        Emap = InputEventMap.getText().toString();
 
         if (ImageUri == null) {
             Toast.makeText(this, "Event Image is mandotary........", Toast.LENGTH_SHORT).show();
