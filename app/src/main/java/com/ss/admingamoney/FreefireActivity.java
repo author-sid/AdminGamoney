@@ -42,10 +42,10 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
 
 
 
-    private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime;
+    private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime , Edate , Emonth , Etournament , Emap;
     private android.widget.ImageView inputEventImage;
     private Button AddNewEventButton;
-    private EditText inputEventPrice, InputEventDescription, InputEventTime;
+    private EditText inputEventPrice, InputEventDescription, InputEventTime , InputEventPrize, InputEventDate , InputEventMonth , InputEventTournament , InputEventMap;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String ProductRandomKey, downloadimageurl;
@@ -92,6 +92,11 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
         inputEventPrice = findViewById(R.id.Freefire_price);
         InputEventDescription = findViewById(R.id.Freefire_description);
         InputEventTime = findViewById(R.id.Freefire_time);
+        InputEventPrize = findViewById(R.id.Freefire_prize);
+        InputEventDate = findViewById(R.id.Freefire_date);
+        InputEventMonth = findViewById(R.id.Freefire_month);
+        InputEventTournament = findViewById(R.id.Freefire_tournament);
+        InputEventMap = findViewById(R.id.Freefire_map);
         loadingBar = new ProgressDialog(this);
         inputEventImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +156,27 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
         }  else if (TextUtils.isEmpty(Etime)) {
 
             Toast.makeText(this, "Please enter Event time", Toast.LENGTH_SHORT).show();
+
+        }  else if (TextUtils.isEmpty(Eprize)) {
+
+            Toast.makeText(this, "Please enter Event prize", Toast.LENGTH_SHORT).show();
+
+        }  else if (TextUtils.isEmpty(Edate)) {
+
+            Toast.makeText(this, "Please enter Event date", Toast.LENGTH_SHORT).show();
+
+        }  else if (TextUtils.isEmpty(Emonth)) {
+
+            Toast.makeText(this, "Please enter Event month", Toast.LENGTH_SHORT).show();
+
+        }  else if (TextUtils.isEmpty(Etournament)) {
+
+            Toast.makeText(this, "Please enter Event tournament", Toast.LENGTH_SHORT).show();
+
+        }  else if (TextUtils.isEmpty(Emap)) {
+
+            Toast.makeText(this, "Please enter Event map", Toast.LENGTH_SHORT).show();
+
         } else {
             StoreProductInfomation();
 
@@ -220,6 +246,11 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
         ProductMap.put("image", downloadimageurl);
         ProductMap.put("price", Eprice);
         ProductMap.put("time", Etime);
+        ProductMap.put("prize", Eprize);
+        ProductMap.put("date", Edate);
+        ProductMap.put("month", Emonth);
+        ProductMap.put("tournament", Etournament);
+        ProductMap.put("map", Emap);
         EventsRef.child(ProductRandomKey).updateChildren(ProductMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

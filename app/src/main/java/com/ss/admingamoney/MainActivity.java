@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
 
 
-    private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime;
+    private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime , Edate , Emonth , Etournament , Emap;
     private android.widget.ImageView inputEventImage;
     private Button AddNewEventButton,Pubgroomid ;
-    private EditText inputEventPrice, InputEventDescription, InputEventTime;
+    private EditText inputEventPrice, InputEventDescription, InputEventTime , InputEventPrize, InputEventDate, InputEventMonth, InputEventTournament, InputEventMap ;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String ProductRandomKey, downloadimageurl;
@@ -90,6 +90,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         inputEventPrice = findViewById(R.id.Event_Price);
         InputEventDescription = findViewById(R.id.Event_description);
         InputEventTime = findViewById(R.id.Event_time);
+        InputEventPrize = findViewById(R.id.Event_Prize);
+        InputEventDate = findViewById(R.id.Event_Date);
+        InputEventMonth = findViewById(R.id.Event_Month);
+        InputEventTournament = findViewById(R.id.Event_Tournament);
+        InputEventMap = findViewById(R.id.Event_Map);
         loadingBar = new ProgressDialog(this);
         inputEventImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +145,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (TextUtils.isEmpty(Etime)) {
 
             Toast.makeText(this, "Please enter Event time", Toast.LENGTH_SHORT).show();
+
+        } else if (TextUtils.isEmpty(Eprize)) {
+
+            Toast.makeText(this, "Please enter Event prize", Toast.LENGTH_SHORT).show();
+
+        } else if (TextUtils.isEmpty(Edate)) {
+
+            Toast.makeText(this, "Please enter Event date", Toast.LENGTH_SHORT).show();
+
+        } else if (TextUtils.isEmpty(Emonth)) {
+
+            Toast.makeText(this, "Please enter Event month", Toast.LENGTH_SHORT).show();
+
+        } else if (TextUtils.isEmpty(Etournament)) {
+
+            Toast.makeText(this, "Please enter Event tournament", Toast.LENGTH_SHORT).show();
+
+        } else if (TextUtils.isEmpty(Emap)) {
+
+            Toast.makeText(this, "Please enter Event map", Toast.LENGTH_SHORT).show();
         } else {
             StoreProductInfomation();
 
@@ -209,6 +234,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ProductMap.put("image", downloadimageurl);
         ProductMap.put("price", Eprice);
         ProductMap.put("time", Etime);
+        ProductMap.put("prize", Eprize);
+        ProductMap.put("date", Edate);
+        ProductMap.put("month", Emonth);
+        ProductMap.put("tournament", Etournament);
+        ProductMap.put("map", Emap);
         EventsRef.child(ProductRandomKey).updateChildren(ProductMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

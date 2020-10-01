@@ -41,10 +41,10 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
     Toolbar toolbar;
 
 
-    private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime;
+    private String Eprice, Edescription, Etime, Savecurrentdate, Savecurrenttime , Eprize ,Edate, Etournament , Emap , Emonth;
     private android.widget.ImageView inputEventImage;
     private Button AddNewEventButton;
-    private EditText inputEventPrice, InputEventDescription, InputEventTime;
+    private EditText inputEventPrice, InputEventDescription, InputEventTime , InputEventPrize , InputEventdate , InputEventMonth , InputEventTournament , InputEvenMap;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String ProductRandomKey, downloadimageurl;
@@ -90,6 +90,11 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
         inputEventPrice = findViewById(R.id.CSGO_price);
         InputEventDescription = findViewById(R.id.CSGO_description);
         InputEventTime = findViewById(R.id.CSGO_time);
+        InputEventPrize = findViewById(R.id.CSGO_prize);
+        InputEventdate = findViewById(R.id.CSGO_date);
+        InputEventMonth = findViewById(R.id.CSGO_month);
+        InputEventTournament = findViewById(R.id.CSGO_tournament);
+        InputEvenMap = findViewById(R.id.CSGO_map);
         loadingBar = new ProgressDialog(this);
         inputEventImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +133,10 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
         Edescription = InputEventDescription.getText().toString();
         Eprice = inputEventPrice.getText().toString();
         Etime = InputEventTime.getText().toString();
+        Edate = InputEventdate.getText().toString();
+        Emonth = InputEventMonth.getText().toString();
+        Etournament = InputEventTournament.getText().toString();
+        Emap = InputEvenMap.getText().toString();
 
         if (ImageUri == null) {
             Toast.makeText(this, "Event Image is mandotary........", Toast.LENGTH_SHORT).show();
@@ -140,6 +149,26 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
         }  else if (TextUtils.isEmpty(Etime)) {
 
             Toast.makeText(this, "Please enter Event time", Toast.LENGTH_SHORT).show();
+
+        }  else if (TextUtils.isEmpty(Eprize)) {
+
+            Toast.makeText(this, "Please enter Event prize", Toast.LENGTH_SHORT).show();
+
+        }else if (TextUtils.isEmpty(Edate)) {
+
+            Toast.makeText(this, "Please enter Event date", Toast.LENGTH_SHORT).show();
+
+        } else if (TextUtils.isEmpty(Emonth)) {
+
+                Toast.makeText(this, "Please enter Event month", Toast.LENGTH_SHORT).show();
+
+        } else if (TextUtils.isEmpty(Etournament)) {
+
+            Toast.makeText(this, "Please enter Event tournament", Toast.LENGTH_SHORT).show();
+
+        } else if (TextUtils.isEmpty(Emap)) {
+
+            Toast.makeText(this, "Please enter Event map", Toast.LENGTH_SHORT).show();
         } else {
             StoreProductInfomation();
 
@@ -209,6 +238,11 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
         ProductMap.put("image", downloadimageurl);
         ProductMap.put("price", Eprice);
         ProductMap.put("time", Etime);
+        ProductMap.put("prize", Eprize);
+        ProductMap.put("date", Edate);
+        ProductMap.put("month", Emonth);
+        ProductMap.put("tournament",Etournament);
+        ProductMap.put("map", Emap);
         EventsRef.child(ProductRandomKey).updateChildren(ProductMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

@@ -31,6 +31,10 @@
 
         </include>
 
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
 
         <TextView
         android:layout_width="match_parent"
@@ -92,12 +96,72 @@
         android:padding="20dp"
         android:textSize="18sp" />
 
+        <EditText
+            android:id="@+id/Cod_prize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Cod_time"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="6dp"
+            android:hint="Enter Prize"
+            android:padding="20dp"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/Cod_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Cod_prize"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="6dp"
+            android:hint="Enter Date"
+            android:padding="20dp"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/Cod_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Cod_date"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="6dp"
+            android:hint="Enter Month"
+            android:padding="20dp"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/Cod_tournament"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Cod_month"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="6dp"
+            android:hint="Enter Tournament"
+            android:padding="20dp"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/Cod_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Cod_tournament"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="6dp"
+            android:hint="Enter Map"
+            android:padding="20dp"
+            android:textSize="18sp" />
+
 
     <Button
         android:id="@+id/add_Event"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Cod_time"
+        android:layout_below="@id/Cod_map"
         android:layout_marginTop="20dp"
         android:text="Add Event"
         android:layout_marginLeft="45dp"
