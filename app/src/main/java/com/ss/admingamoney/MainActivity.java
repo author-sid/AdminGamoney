@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
 
 
-    private String Eprice, Edescription, Eprize, Etime, Savecurrentdate, Savecurrenttime , Edate , Emonth , Etournament , Emap;
+    private String Eprice, Edescription, EPrize, Etime, Savecurrentdate, Savecurrenttime , Edate , Emonth , Etournament , Emap;
     private android.widget.ImageView inputEventImage;
     private Button AddNewEventButton,Pubgroomid ;
     private EditText inputEventPrice, InputEventDescription, InputEventTime , InputEventPrize, InputEventDate, InputEventMonth, InputEventTournament, InputEventMap ;
@@ -133,6 +133,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Edescription = InputEventDescription.getText().toString();
         Eprice = inputEventPrice.getText().toString();
         Etime = InputEventTime.getText().toString();
+        EPrize = InputEventPrize.getText().toString();
+        Edate = InputEventDate.getText().toString();
+        Emonth = InputEventMonth.getText().toString();
+        Etournament = InputEventTournament.getText().toString();
+        Emap = InputEventMap.getText().toString();
 
         if (ImageUri == null) {
             Toast.makeText(this, "Event Image is mandotary........", Toast.LENGTH_SHORT).show();
@@ -146,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             Toast.makeText(this, "Please enter Event time", Toast.LENGTH_SHORT).show();
 
-        } else if (TextUtils.isEmpty(Eprize)) {
+        } else if (TextUtils.isEmpty(EPrize)) {
 
             Toast.makeText(this, "Please enter Event prize", Toast.LENGTH_SHORT).show();
 
@@ -234,7 +239,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ProductMap.put("image", downloadimageurl);
         ProductMap.put("price", Eprice);
         ProductMap.put("time", Etime);
-        ProductMap.put("prize", Eprize);
+        ProductMap.put("prize", EPrize);
         ProductMap.put("date", Edate);
         ProductMap.put("month", Emonth);
         ProductMap.put("tournament", Etournament);
