@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Intent;
@@ -36,53 +37,29 @@ import com.google.firebase.storage.UploadTask;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-
-
-    private String Eprice, Edescription, EPrize, Etime, Savecurrentdate, Savecurrenttime , Edate , Emonth , Etournament , Emap;
-    private android.widget.ImageView inputEventImage;
-    private Button AddNewEventButton,Pubgroomid ;
-    private EditText inputEventPrice, InputEventDescription, InputEventTime , InputEventPrize, InputEventDate, InputEventMonth, InputEventTournament, InputEventMap ;
-    private static final int GalleryPick = 1;
-    private Uri ImageUri;
-    private String ProductRandomKey, downloadimageurl;
-    private StorageReference EventsImagesRef;
-    private DatabaseReference EventsRef;
-    private ProgressDialog loadingBar;
-    private Object NonNull;
+    String Eprice, Edescription, EPrize, Etime, Savecurrentdate, Savecurrenttime , Edate , Emonth , Etournament , Emap,ProductRandomKey, downloadimageurl;
+    android.widget.ImageView inputEventImage;
+    Button AddNewEventButton;
+    EditText inputEventPrice, InputEventDescription, InputEventTime , InputEventPrize, InputEventDate, InputEventMonth, InputEventTournament, InputEventMap ;
+    static final int GalleryPick = 1;
+    Uri ImageUri;
+    StorageReference EventsImagesRef;
+    DatabaseReference EventsRef;
+    ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Pubgroomid = findViewById(R.id.pubgroomid);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
-
-
-        setSupportActionBar(toolbar);
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView.setNavigationItemSelectedListener(this);
-        Pubgroomid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Roomid1intent = new Intent(MainActivity.this, Pubgfirebase.class);
-                startActivity(Roomid1intent);
-                finish();
-
-            }
-        });
-
-
         inputEventImage = findViewById(R.id.select_Event_image111);
         EventsImagesRef = FirebaseStorage.getInstance().getReference().child("Pubg Images");
         EventsRef = FirebaseDatabase.getInstance().getReference("Pubg Tournaments");
@@ -108,6 +85,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ValidateProductData();
             }
         });
+
+        setSupportActionBar(toolbar);
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.pubg);
     }
 
     private void OpenGallery() {
@@ -174,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             StoreProductInfomation();
 
         }
-
     }
 
     private void StoreProductInfomation() {
@@ -183,15 +167,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd,yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd,yyyy");
         Savecurrentdate = currentDate.format(calendar.getTime());
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         Savecurrenttime = currentTime.format(calendar.getTime());
         ProductRandomKey = Savecurrentdate + Savecurrenttime;
         final StorageReference filepath = EventsImagesRef.child(ImageUri.getLastPathSegment() + ProductRandomKey + ".jpg");
-
         final UploadTask upload = filepath.putFile(ImageUri);
-
 
         upload.addOnFailureListener(new OnFailureListener() {
             @Override
@@ -208,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                         if (!task.isSuccessful()) {
-                            throw task.getException();
+                            throw Objects.requireNonNull(task.getException());
                         }
                         downloadimageurl = filepath.getDownloadUrl().toString();
                         return filepath.getDownloadUrl();
@@ -217,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onComplete(@NonNull Task<Uri> task) {
                         if (task.isSuccessful()) {
-                            downloadimageurl = task.getResult().toString();
+                            downloadimageurl = Objects.requireNonNull(task.getResult()).toString();
                             Toast.makeText(MainActivity.this, "got the Product image url successfully", Toast.LENGTH_SHORT).show();
 
 
@@ -231,8 +213,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void SaveProductInfotodatabase() {
-
-
         HashMap<String, Object> ProductMap = new HashMap<>();
         ProductMap.put("pid", ProductRandomKey);
         ProductMap.put("description", Edescription);
@@ -256,12 +236,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             Toast.makeText(MainActivity.this, "Product is added successfully", Toast.LENGTH_SHORT).show();
                         } else {
                             loadingBar.dismiss();
-                            String message = task.getException().toString();
+                            String message = Objects.requireNonNull(task.getException()).toString();
                             Toast.makeText(MainActivity.this, "Error:" + message, Toast.LENGTH_SHORT).show();
 
                         }
                     }
                 });
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@androidx.annotation.NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.pubg:
+                break;
+
+            case R.id.cod:
+                Intent intent2 = new Intent(MainActivity.this, CodActivity.class);
+                startActivity(intent2);
+                break;
+
+            case R.id.csgo:
+                Intent intent3 = new Intent(MainActivity.this, CSGO_Activity.class);
+                startActivity(intent3);
+                break;
+
+            case R.id.freefire:
+                Intent intent4 = new Intent(MainActivity.this, FreefireActivity.class);
+                startActivity(intent4);
+                break;
+        }
+        return true;
 
     }
 
@@ -276,35 +281,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-
-        switch (menuItem.getItemId()) {
-
-
-            case R.id.pubg:
-                break;
-
-            case R.id.cod:
-                Intent intent2 = new Intent(MainActivity.this, CodActivity.class);
-                startActivity(intent2);
-                break;
-
-
-            case R.id.csgo:
-                Intent intent3 = new Intent(MainActivity.this, CSGO_Activity.class);
-                startActivity(intent3);
-                break;
-
-            case R.id.freefire:
-                Intent intent4 = new Intent(MainActivity.this, FreefireActivity.class);
-                startActivity(intent4);
-                break;
-        }
-        return true;
     }
 }
 

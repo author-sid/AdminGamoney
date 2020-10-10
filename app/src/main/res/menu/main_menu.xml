@@ -6,22 +6,28 @@
         <item
             android:id="@+id/pubg"
             android:icon="@drawable/pubg"
-            android:title="pubg" />
+            android:title="@string/pubg" />
 
         <item
             android:id="@+id/freefire"
             android:icon="@drawable/freefire"
-            android:title="freefire" />
+            android:title="@string/freefire" />
 
         <item
             android:id="@+id/cod"
             android:icon="@drawable/cod"
-            android:title="cod" />
+            android:title="@string/cod" />
 
         <item
             android:id="@+id/csgo"
             android:icon="@drawable/csgo"
-            android:title="csgo" />
+            android:title="@string/csgo" />
+
+        <item
+            android:id="@+id/RoomID"
+            android:icon="@drawable/roomid"
+            android:title="@string/roomid"/>
+
     </group>
 
 

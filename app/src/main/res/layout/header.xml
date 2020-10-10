@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:orientation="vertical"
-    android:background="@drawable/background"
-    android:gravity="bottom">
+    android:background="@drawable/sidenav1">
 
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Tournament"
-        android:textSize="24sp"
-        android:textColor="#000000"/>
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logo_nav"
+        android:contentDescription="@string/logo"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gamoney"
+        android:text="@string/gamoney"
         android:textSize="24sp"
-        android:textColor="#000000"/>
+        android:layout_marginTop="126dp"
+        android:textColor="#F5F5DC"
+        android:layout_marginStart="60dp"
+        android:fontFamily="@font/bungee"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:text="@string/earn_money_through_gaming"
+        android:textColor="#F5F5DC"
+        android:textSize="12sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="175dp"/>
 
-
-
-
-</LinearLayout>
+</RelativeLayout>

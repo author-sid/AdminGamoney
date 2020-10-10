@@ -7,184 +7,209 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".CSGO_Activity"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    android:background="@drawable/backgroundgamoney">
 
     <com.google.android.material.navigation.NavigationView
+        android:layout_gravity="start"
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        app:itemTextColor="#F5F5DC"
+        app:itemIconTint="#F5F5DC"
+        android:background="@drawable/sidenav1"
         app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu" />
+        app:menu="@menu/main_menu"/>
 
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF">
+        android:layout_height="wrap_content">
 
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
-
-                <TextView
-                android:id="@+id/gamename"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="start"
-                android:text="CSGO"
-                android:textColor="#000000"
-                android:textSize="30sp" />
-
-
-            <ImageView
-                android:id="@+id/CSGO_image"
-                android:layout_width="295dp"
-                android:layout_height="174dp"
-                android:layout_below="@+id/gamename"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:cropToPadding="false"
-                android:scaleType="centerCrop"
-                android:src="@drawable/select_product_image" />
-
-
-
-            <EditText
-                android:id="@+id/CSGO_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/CSGO_image"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="45dp"
-                android:hint="Enter Price"
-                android:inputType="textMultiLine"
-                android:padding="20dp"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/CSGO_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/CSGO_price"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="45dp"
-                android:hint="Enter description......."
-                android:inputType="textMultiLine"
-                android:padding="20dp"
-                android:textSize="18sp" />
-
-
-            <EditText
-                android:id="@+id/CSGO_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/CSGO_description"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="45dp"
-                android:hint="Enter Time"
-                android:padding="20dp"
-                android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/CSGO_prize"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/CSGO_time"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="45dp"
-            android:hint="Enter Prize"
-            android:padding="20dp"/>
+            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/CSGO_date"
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"/>
+
+            <TextView
+                android:id="@+id/gamename"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/CSGO_prize"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="45dp"
-                android:hint="Enter Date"
-                android:padding="20dp"
-                android:textSize="18sp" />
+                android:layout_height="59dp"
+                android:fontFamily="@font/bungee"
+                android:gravity="center"
+                android:text="@string/csgo"
+                android:textColor="#fff"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/CSGO_month"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/CSGO_date"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="45dp"
-                android:hint="Enter Month"
-                android:padding="20dp"
-                android:textSize="18sp" />
+                <ImageView
+                    android:id="@+id/CSGO_image"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/gamename"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/select_product_image"
+                    app:tint="#fff"
+                    android:contentDescription="@string/tournament_image" />
 
-            <EditText
-                android:id="@+id/CSGO_tournament"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/CSGO_month"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="45dp"
-                android:hint="Enter Tournament"
-                android:padding="20dp"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/CSGO_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_image"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="45dp"
+                    android:hint="@string/enter_price"
+                    android:inputType="number"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"/>
 
-            <EditText
-                android:id="@+id/CSGO_map"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/CSGO_tournament"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="45dp"
-                android:hint="Enter Map"
-                android:padding="20dp"
-                android:textSize="18sp" />
-
-
-            <Button
-                android:id="@+id/add_Event"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/CSGO_map"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="45dp"
-                android:padding="17dp"
-                android:text="Add Event"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/csgoroomid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/add_Event"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="50dp"
-                android:text="Roomid3"
-                android:textColor="#000000"
-                android:textSize="18sp" />
-
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/csgoroomid"
-            android:layout_above="@+id/toolbar">
+                <EditText
+                    android:id="@+id/CSGO_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_price"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="45dp"
+                    android:hint="@string/enter_description"
+                    android:inputType="textMultiLine"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"/>
 
 
-        </ScrollView>
+                <EditText
+                    android:id="@+id/CSGO_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_description"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="45dp"
+                    android:hint="@string/enter_time"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="text" />
 
-    </RelativeLayout>
+                <EditText
+                    android:id="@+id/CSGO_prize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_time"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="45dp"
+                    android:hint="@string/enter_prize"
+                    android:padding="20dp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/CSGO_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_prize"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="45dp"
+                    android:hint="@string/enter_date"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="number"
+                    tools:ignore="TextFields" />
+
+                <EditText
+                    android:id="@+id/CSGO_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_date"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="45dp"
+                    android:hint="@string/enter_month"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/CSGO_tournament"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_month"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="45dp"
+                    android:hint="@string/enter_tournament"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/CSGO_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_tournament"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="45dp"
+                    android:hint="@string/enter_map"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="text" />
+
+                <Button
+                    android:id="@+id/add_Event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CSGO_map"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="45dp"
+                    android:padding="17dp"
+                    android:text="@string/add_event"
+                    android:textAllCaps="true"
+                    android:textColor="#ffffff"
+                    android:background="#000" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

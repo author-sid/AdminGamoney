@@ -3,4 +3,27 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">close navigation drawer</string>
+    <string name="pubg">PUBG</string>
+    <string name="enter_price">Enter Price</string>
+    <string name="enter_description">Enter description</string>
+    <string name="enter_time">Enter Time</string>
+    <string name="enter_prize">Enter Prize</string>
+    <string name="enter_date">Enter Date</string>
+    <string name="enter_month">Enter Month</string>
+    <string name="enter_tournament">Enter Tournament</string>
+    <string name="enter_map">Enter Map</string>
+    <string name="add_event">Add Event</string>
+    <string name="roomid">RoomID</string>
+    <string name="cod">COD</string>
+    <string name="roomid1">RoomID1</string>
+    <string name="csgo">CSGO</string>
+    <string name="roomid3">RoomID3</string>
+    <string name="freefire">FreeFire</string>
+    <string name="roomid4">RoomID4</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="tournament_image">Tournament Image</string>
+    <string name="gamoney">Gamoney</string>
+    <string name="earn_money_through_gaming">Earn Money Through gaming</string>
+    <string name="logo">logo</string>
 </resources>

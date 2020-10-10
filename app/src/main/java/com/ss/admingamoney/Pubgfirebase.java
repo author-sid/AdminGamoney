@@ -1,116 +1,88 @@
 package com.ss.admingamoney;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Pubgfirebase extends AppCompatActivity {
-    private String ERoomid, Epassword, Savecurrentdate, Savecurrenttime;
-    private Button Submitbtn;
-    private EditText InputRoomid, InputPassword;
-    private DatabaseReference Pubgref;
-    private String ProductRandomkey;
-    private ProgressDialog loadingBar;
-
-
+    EditText RoomID, Password, Pricepaid, TournamentID;
+    Button Submitbttn;
+    ProgressDialog loadingbar;
+    DatabaseReference reference;
+    String roomid, password, tournamentid, pricepaid, Childname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pubgfirebase);
 
-        Submitbtn = findViewById(R.id.Submitbtn4);
-        Pubgref = FirebaseDatabase.getInstance().getReference("Pubg ID");
-        InputRoomid = findViewById(R.id.Freefire1);
-        InputPassword = findViewById(R.id.password4);
-        Submitbtn = findViewById(R.id.Submitbtn4);
-        loadingBar = new ProgressDialog(this);
-        Submitbtn.setOnClickListener(new View.OnClickListener() {
+        RoomID = findViewById(R.id.Roomid1);
+        Password = findViewById(R.id.password4);
+        Pricepaid = findViewById(R.id.pricejoined);
+        TournamentID = findViewById(R.id.tournamentid1);
+        Submitbttn = findViewById(R.id.Submitbtn4);
+        loadingbar= new ProgressDialog(this);
+        reference = FirebaseDatabase.getInstance().getReference("RoomID");
+
+        Submitbttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ValidateProductData();
+                StoreProductinfo();
             }
         });
 
     }
 
+    private void StoreProductinfo() {
+        roomid = RoomID.getText().toString();
+        password= Password.getText().toString();
+        tournamentid = TournamentID.getText().toString();
+        pricepaid = Pricepaid.getText().toString();
+        Childname = tournamentid+ " " + pricepaid;
 
-    private void ValidateProductData() {
-
-        ERoomid = InputRoomid.getText().toString();
-        Epassword = InputPassword.getText().toString();
-
-        if (ERoomid == null) {
-            Toast.makeText(this, "Roomid is mandatory....", Toast.LENGTH_SHORT).show();
-
-        } else if (Epassword == null) {
-            Toast.makeText(this, "Password is mandatory....", Toast.LENGTH_SHORT).show();
-        } else {
-            StoreProductInformation();
+        if (roomid == null){
+            RoomID.setError("Enter Room ID");
+        }else if (password == null){
+            Password.setError("Enter Password");
+        }else if (tournamentid == null){
+            TournamentID.setError("Enter Tournament ID");
         }
 
-    }
+        HashMap<String, Object> ProdutMap = new HashMap<>();
+        ProdutMap.put("roomid",roomid);
+        ProdutMap.put("password",password);
+        ProdutMap.put("tournamentid",tournamentid);
 
-    private void StoreProductInformation() {
-
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd,yyyy");
-        Savecurrentdate = currentDate.format(calendar.getTime());
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        Savecurrenttime = currentTime.format(calendar.getTime());
-        ProductRandomkey = Savecurrentdate + Savecurrenttime;
-
-
-        SaveProductInfotodatabase();
-
-
-    }
-
-    private void SaveProductInfotodatabase() {
-
-        HashMap<String, Object> ProductMap = new HashMap<>();
-        ProductMap.put("Roomid", ERoomid);
-        ProductMap.put("Password", Epassword);
-        ProductMap.put("pid", ProductRandomkey);
-
-        Pubgref.child(ProductRandomkey).updateChildren(ProductMap)
+        reference.child(Childname).updateChildren(ProdutMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-
-                        if (task.isSuccessful()) {
-                            Intent a = new Intent(Pubgfirebase.this, Pubgfirebase.class);
-                            startActivity(a);
-                            loadingBar.dismiss();
+                        if (task.isSuccessful()){
+                            loadingbar.dismiss();
                             Toast.makeText(Pubgfirebase.this, "Product is added successfully", Toast.LENGTH_SHORT).show();
-                        } else {
-                            loadingBar.dismiss();
-                            String message = task.getException().toString();
-                            Toast.makeText(Pubgfirebase.this, "Error:" + message, Toast.LENGTH_SHORT).show();
-
+                        }else {
+                            loadingbar.dismiss();
+                            String message = Objects.requireNonNull(task.getException()).toString();
+                            Toast.makeText(Pubgfirebase.this,"Error"+message,Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
 
-
     }
-
 
 }
 

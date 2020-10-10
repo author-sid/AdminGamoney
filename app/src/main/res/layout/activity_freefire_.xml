@@ -7,178 +7,212 @@
     tools:context=".FreefireActivity"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    android:id="@+id/drawer_layout">
+    android:id="@+id/drawer_layout"
+    android:background="@drawable/backgroundgamoney">
 
     <com.google.android.material.navigation.NavigationView
+        android:layout_gravity="start"
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        app:itemTextColor="#F5F5DC"
+        app:itemIconTint="#F5F5DC"
+        android:background="@drawable/sidenav1"
         app:headerLayout="@layout/header"
-        android:layout_gravity="start"
-        app:menu="@menu/main_menu" />
+        app:menu="@menu/main_menu"/>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF">
+        android:layout_height="wrap_content">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar">
-
-
-        </include>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/gamename"
-        android:text="Freefire"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:textColor="#000000"/>
-
-
-    <ImageView
-        android:layout_below="@+id/gamename"
-        android:id="@+id/Freefire_image"
-        android:layout_width="295dp"
-        android:layout_height="174dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:cropToPadding="false"
-        android:src="@drawable/select_product_image"
-        android:scaleType="centerCrop" />
-
-    <EditText
-        android:id="@+id/Freefire_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Freefire_image"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginTop="20dp"
-        android:hint="Enter Price"
-        android:inputType="textMultiLine"
-        android:padding="20dp"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/Freefire_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Freefire_price"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginTop="6dp"
-        android:hint="Enter description......."
-        android:inputType="textMultiLine"
-        android:padding="20dp"
-        android:textSize="18sp" />
-
-
-    <EditText
-        android:id="@+id/Freefire_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Freefire_description"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginTop="6dp"
-        android:hint="Enter Time"
-        android:padding="20dp"
-        android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/Freefire_prize"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Freefire_time"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:layout_marginTop="6dp"
-            android:hint="Enter Prize"
-            android:padding="20dp"
-            android:textSize="18sp" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/Freefire_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Freefire_prize"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:layout_marginTop="6dp"
-            android:hint="Enter Date"
-            android:padding="20dp"
-            android:textSize="18sp" />
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/toolbar" />
 
-        <EditText
-            android:id="@+id/Freefire_month"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Freefire_date"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:layout_marginTop="6dp"
-            android:hint="Enter Month"
-            android:padding="20dp"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/Freefire_tournament"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Freefire_month"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:layout_marginTop="6dp"
-            android:hint="Enter Tournament"
-            android:padding="20dp"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/Freefire_map"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Freefire_tournament"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:layout_marginTop="6dp"
-            android:hint="Enter Map"
-            android:padding="20dp"
-            android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/gamename"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:fontFamily="@font/bungee"
+                    android:gravity="center"
+                    android:text="@string/freefire"
+                    android:textColor="#fff"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
 
-    <Button
-        android:id="@+id/add_Event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Freefire_map"
-        android:layout_marginTop="20dp"
-        android:text="Add Event"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:padding="17dp"
-        android:textSize="18sp"
-        android:textAllCaps="false"
-        android:textColor="#ffffff"/>
+                <ImageView
+                    android:layout_below="@+id/gamename"
+                    android:id="@+id/Freefire_image"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/select_product_image"
+                    app:tint="#fff"
+                    android:contentDescription="@string/tournament_image"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/add_Event"
-            android:text="Roomid4"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="50dp"
-            android:id="@+id/freefireroomid"/>
+                <EditText
+                    android:id="@+id/Freefire_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_image"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/enter_price"
+                    android:inputType="number"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"/>
+
+                <EditText
+                    android:id="@+id/Freefire_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_price"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/enter_description"
+                    android:inputType="textMultiLine"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"/>
 
 
+                <EditText
+                    android:id="@+id/Freefire_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_description"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/enter_time"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="text" />
 
-</RelativeLayout>
+                <EditText
+                    android:id="@+id/Freefire_prize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_time"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/enter_prize"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/Freefire_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_prize"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/enter_date"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="number"
+                    tools:ignore="TextFields" />
+
+                <EditText
+                    android:id="@+id/Freefire_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_date"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/enter_month"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/Freefire_tournament"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_month"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/enter_tournament"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/Freefire_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_tournament"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/enter_map"
+                    android:padding="20dp"
+                    android:textSize="18sp"
+                    android:textColorHint="#fff"
+                    android:background="@drawable/edittextbg"
+                    android:textColor="#fff"
+                    android:autofillHints="Text"
+                    android:inputType="text" />
+
+                <Button
+                    android:id="@+id/add_Event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Freefire_map"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/add_event"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:padding="17dp"
+                    android:textSize="18sp"
+                    android:textAllCaps="true"
+                    android:textColor="#ffffff"
+                    android:background="#000"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
