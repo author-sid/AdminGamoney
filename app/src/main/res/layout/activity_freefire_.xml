@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".FreefireActivity"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
     android:id="@+id/drawer_layout"
     android:background="@drawable/backgroundgamoney">
 

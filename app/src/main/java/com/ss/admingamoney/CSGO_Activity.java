@@ -284,6 +284,11 @@ public class CSGO_Activity extends AppCompatActivity implements NavigationView.O
                 Intent intent4 = new Intent(CSGO_Activity.this, FreefireActivity.class);
                 startActivity(intent4);
                 break;
+
+            case R.id.RoomID:
+                Intent intent5 = new Intent(CSGO_Activity.this, RoomID.class);
+                startActivity(intent5);
+                break;
         }
         return true;
     }

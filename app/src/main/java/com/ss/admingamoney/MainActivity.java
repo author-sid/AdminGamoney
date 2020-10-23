@@ -265,6 +265,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent4 = new Intent(MainActivity.this, FreefireActivity.class);
                 startActivity(intent4);
                 break;
+
+            case R.id.RoomID:
+                Intent intent5 = new Intent(MainActivity.this, RoomID.class);
+                startActivity(intent5);
+                break;
+
         }
         return true;
 

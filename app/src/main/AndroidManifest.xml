@@ -11,9 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity android:name=".RoomID" />
-        <activity android:name=".Csgofirebase" />
-        <activity android:name=".Freefirefirebase" />
-        <activity android:name=".CodFirebase" />
         <activity android:name=".Pubgfirebase" />
         <activity android:name=".CSGO_Activity" />
         <activity android:name=".FreefireActivity" />

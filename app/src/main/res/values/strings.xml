@@ -26,4 +26,7 @@
     <string name="gamoney">Gamoney</string>
     <string name="earn_money_through_gaming">Earn Money Through gaming</string>
     <string name="logo">logo</string>
+    <string name="room_id">Room ID</string>
+    <string name="price">Price</string>
+    <string name="tournament_name">Tournament Name</string>
 </resources>

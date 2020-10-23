@@ -283,6 +283,11 @@ public class FreefireActivity extends AppCompatActivity implements NavigationVie
 
             case R.id.freefire:
                 break;
+
+            case R.id.RoomID:
+                Intent intent5 = new Intent(FreefireActivity.this, RoomID.class);
+                startActivity(intent5);
+                break;
         }
         return true;
     }

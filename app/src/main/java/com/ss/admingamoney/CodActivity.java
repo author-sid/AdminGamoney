@@ -271,6 +271,11 @@ public class CodActivity extends AppCompatActivity implements NavigationView.OnN
                 Intent intent4 = new Intent(CodActivity.this, FreefireActivity.class);
                 startActivity(intent4);
                 break;
+
+            case R.id.RoomID:
+                Intent intent5 = new Intent(CodActivity.this, RoomID.class);
+                startActivity(intent5);
+                break;
         }
         return true;
 
